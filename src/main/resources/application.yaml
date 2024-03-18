@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/upvote
+    username: postgres
+    password: test1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
