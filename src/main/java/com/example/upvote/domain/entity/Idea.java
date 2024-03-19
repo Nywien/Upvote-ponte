@@ -18,6 +18,9 @@ public class Idea {
     @Column(name = "idea_id")
     private Long ideaId;
 
+    @Column(name = "name")
+    private String name;
+
     @JoinColumn(name = "owner_id")
     @ManyToOne
     private CustomUser owner;
@@ -35,6 +38,7 @@ public class Idea {
     private boolean isDeleted = false;
 
     public Idea(IdeaCreationCommand command) {
+        this.name = command.getName();
         this.descriptionOfIdea = command.getDescriptionOfIdea();
     }
 }

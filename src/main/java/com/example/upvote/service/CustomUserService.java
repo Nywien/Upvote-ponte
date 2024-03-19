@@ -6,6 +6,7 @@ import com.example.upvote.dto.incoming.CustomUserCreationCommand;
 import com.example.upvote.dto.outgoing.CustomUserDetails;
 import com.example.upvote.repository.CustomUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,7 +36,8 @@ public class CustomUserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("Username not found");
         }
-        return org.springframework.security.core.userdetails.User
+
+        return User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
                 .roles(user.getRole().getDisplayName())

@@ -1,8 +1,13 @@
 server:
   port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?serverTimezone=UTC&characterEncoding=utf8
     password: test1234
     username: postgres
   jpa:

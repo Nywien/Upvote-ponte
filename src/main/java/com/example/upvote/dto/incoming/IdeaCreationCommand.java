@@ -8,4 +8,5 @@ import lombok.NoArgsConstructor;
 public class IdeaCreationCommand {
 
     private String descriptionOfIdea;
+    private String name;
 }

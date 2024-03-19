@@ -21,7 +21,7 @@ public class UserController {
     private final CustomUserService customUserService;
 
     @PostMapping
-    @Secured("ROLE_VOTER")
+    //@Secured("ROLE_VOTER")
     public ResponseEntity<Void> createNewUser(@RequestBody CustomUserCreationCommand command) {
         customUserService.register(command);
 

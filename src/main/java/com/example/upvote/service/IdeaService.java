@@ -34,6 +34,7 @@ public class IdeaService {
         UserDetails loggedInUser = (User) authentication.getPrincipal();
         CustomUser customUser = customUserRepository.findCustomUserByUsername(loggedInUser.getUsername());
         customUser.getIdeasOfUser().add(idea);
+        idea.setOwner(customUser);
     }
 
     public List<IdeaDetails> listAllIdeas() {
