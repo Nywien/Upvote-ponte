@@ -1,0 +1,12 @@
+.button-up{
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+.button-up:hover{
+  color: #00d5ff;
+}

@@ -1,14 +1,14 @@
 <ul class="nav nav-tabs justify-content-center">
   <li class="nav-item">
-    <a class="nav-link" href="#">Ötletek</a>
+    <a class="nav-link" routerLink="/idea-list">Ötletek</a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="!isLoggedIn()" class="nav-item">
     <a class="nav-link" routerLink="/register">Regisztráció</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="/idea-form">Ötlet beküldése</a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="hasRoles(['ROLE_ADMIN'])" class="nav-item">
     <a class="nav-link" href="#">Ötletek jóváhagyása</a>
   </li>
   <li *ngIf="!isLoggedIn()" class="nav-item">

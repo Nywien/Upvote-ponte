@@ -15,6 +15,22 @@ export class NavbarComponent {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  hasRoles(expectedRoles: string[]): boolean {
+    const user = localStorage.getItem('user');
+    if (user) {
+      const userRoles = JSON.parse(user);
+      const roles = userRoles.role;
+      for (const expectedRole of expectedRoles) {
+        if (roles.includes(expectedRole)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    return false;
+  }
+
   isLoggedIn() {
     return localStorage.getItem('user');
   }

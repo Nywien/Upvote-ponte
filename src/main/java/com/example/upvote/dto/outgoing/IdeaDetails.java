@@ -10,11 +10,13 @@ public class IdeaDetails {
 
     private Long id;
     private String owner;
+    private String name;
     private String descriptionOfIdea;
     private int votes;
 
     public IdeaDetails(Idea idea) {
         this.id = idea.getIdeaId();
+        this.name = idea.getName();
         this.owner = idea.getOwner().getFirstName() + " " + idea.getOwner().getLastName();
         this.descriptionOfIdea = idea.getDescriptionOfIdea();
         this.votes = idea.getUsers().size();
