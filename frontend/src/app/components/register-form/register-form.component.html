@@ -1,0 +1,118 @@
+<div class="container-fluid container my-lg-4">
+  <h4 class="my-2 text-center">Regisztráció</h4>
+  <hr class="hr"/>
+  <form [formGroup]="registerForm" class="mb-3 responsive-form" (ngSubmit)="submitRegisterForm()">
+
+    <div class="my-2">
+      <label for="firstName" class="form-label label"
+             [ngClass]="{'text-danger':(registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched) || registerForm.get('firstName')?.errors?.['serverError']}"
+      >
+
+        Keresztnév:
+      </label>
+      <input
+        id="firstName"
+        formControlName="firstName"
+        placeholder="Kérlek add meg a keresztneved..."
+        class="form-control input"
+        type="text">
+      <small *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched && !registerForm.get('firstName')?.errors?.['serverError']" class="text-danger">
+        Kötelező a keresztnév kitöltése!
+      </small>
+      <small *ngIf="registerForm.get('firstName')?.errors?.['serverError']" class="text-danger">
+        {{registerForm.get('firstName')?.errors?.['serverError']}}
+      </small>
+
+    </div>
+
+    <div class="my-2">
+      <label for="lastName" class="form-label label"
+             [ngClass]="{'text-danger':(registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched) || registerForm.get('lastName')?.errors?.['serverError']}">
+
+        Vezetéknév:
+      </label>
+      <input
+        id="lastName"
+        formControlName="lastName"
+        placeholder="Kérlek add meg a vezetékneved..."
+        class="form-control input"
+        type="text">
+      <small *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched && !registerForm.get('lastName')?.errors?.['serverError']" class="text-danger">
+        Kötelező a vezetéknév kitöltése!
+      </small>
+      <small *ngIf="registerForm.get('lastName')?.errors?.['serverError']" class="text-danger">
+        {{registerForm.get('lastName')?.errors?.['serverError']}}
+      </small>
+
+    </div>
+
+    <div class="my-2">
+      <label for="email" class="form-label label"
+             [ngClass]="{'text-danger':(registerForm.get('email')?.invalid && registerForm.get('email')?.touched) || registerForm.get('email')?.errors?.['serverError']}">
+
+        Email cím:
+      </label>
+      <input
+        id="email"
+        formControlName="email"
+        placeholder="Kérlek add meg az email címed..."
+        class="form-control input"
+        type="text">
+      <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.errors?.['serverError']" class="text-danger">
+        Kötelező az email cím kitöltése!
+      </small>
+      <small *ngIf="registerForm.get('email')?.errors?.['serverError']" class="text-danger">
+        {{registerForm.get('email')?.errors?.['serverError']}}
+      </small>
+
+    </div>
+
+
+    <div class="my-2">
+      <label for="username" class="form-label label"
+             [ngClass]="{'text-danger':(registerForm.get('username')?.invalid && registerForm.get('username')?.touched) || registerForm.get('username')?.errors?.['serverError']}">
+
+        Felhasználónév:
+      </label>
+      <input
+        id="username"
+        formControlName="username"
+        placeholder="Kérlek add meg a felhasználóneved..."
+        class="form-control input"
+        type="text">
+      <small *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched && !registerForm.get('username')?.errors?.['serverError']" class="text-danger">
+        Kötelező a felhasználónév kitöltése!
+      </small>
+      <small *ngIf="registerForm.get('username')?.errors?.['serverError']" class="text-danger">
+        {{registerForm.get('username')?.errors?.['serverError']}}
+      </small>
+
+      <div class="my-2">
+        <label for="password" class="form-label label"
+               [ngClass]="{'text-danger':(registerForm.get('password')?.invalid && registerForm.get('password')?.touched) || registerForm.get('password')?.errors?.['serverError']}">
+
+          Password:
+        </label>
+        <input
+          id="password"
+          formControlName="password"
+          placeholder="Kérlek add meg a jelszavad..."
+          class="form-control input"
+          type="password">
+        <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.errors?.['serverError']" class="text-danger">
+          Kötelező a jelszó kitöltése!
+        </small>
+        <small *ngIf="registerForm.get('password')?.errors?.['serverError']" class="text-danger">
+          {{registerForm.get('password')?.errors?.['serverError']}}
+        </small>
+
+      </div>
+
+    </div>
+
+    <div class="mb-4 my-3 text-center">
+      <button type="submit" class="btn button">Regisztrálok</button>
+    </div>
+
+  </form>
+</div>

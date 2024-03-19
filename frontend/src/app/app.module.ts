@@ -7,12 +7,18 @@ import {HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { IdeaFormComponent } from './components/idea-form/idea-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { IdeaListComponent } from './components/idea-list/idea-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    IdeaFormComponent
+    IdeaFormComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
+    IdeaListComponent
   ],
   imports: [
     BrowserModule,

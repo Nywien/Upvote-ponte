@@ -33,7 +33,7 @@ public class IdeaController {
     }
 
     @PatchMapping("/{id}")
-    //@Secured("ROLE_VOTER")
+    @Secured("ROLE_VOTER")
     public ResponseEntity<Void> addVote(@PathVariable Long id) {
         ideaService.addVote(id);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -41,21 +41,21 @@ public class IdeaController {
 
 
     @GetMapping("/listAllNewIdea")
-   // @Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<List<IdeaList>> listAllNewIdea() {
         List<IdeaList> ideaList = ideaService.listAllNewIdea();
         return new ResponseEntity<>(ideaList, HttpStatus.OK);
     }
 
     @PatchMapping("/ideas/{id}/accept")
-    //@Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Void> acceptIdea(@PathVariable Long id) {
         ideaService.acceptIdea(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PatchMapping("/ideas/{id}/reject")
-    //@Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Void> rejectIdea(@PathVariable Long id) {
         ideaService.rejectIdea(id);
         return new ResponseEntity<>(HttpStatus.OK);

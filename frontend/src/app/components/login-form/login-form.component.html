@@ -1,0 +1,56 @@
+<div class="container container-fluid my-lg-4">
+
+  <h4 class="my-2 text-center">Bejelentkezés</h4>
+  <hr class="hr"/>
+  <form [formGroup]="loginForm" class="mb-3" (ngSubmit)="submitLoginForm()">
+
+    <div class="my-2">
+      <label for="username" class="form-label label"
+             [ngClass]="{'text-danger':(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || loginForm.get('username')?.errors?.['serverError']}"
+      >
+
+        Felhasználónév:
+      </label>
+      <input
+        id="username"
+        formControlName="username"
+        placeholder="Felhasználónév..."
+        class="form-control input"
+        type="text">
+      <small
+        *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched && !loginForm.get('username')?.errors?.['serverError']"
+        class="text-danger">
+        Kötelező megadnod a felhasználónevet!
+      </small>
+    </div>
+    <small *ngIf="loginForm.get('username')?.errors?.['serverError']" class="text-danger">
+      {{ loginForm.get('username')?.errors?.['serverError'] }}
+    </small>
+
+    <div class="my-2">
+      <label for="password" class="form-label label"
+             [ngClass]="{'text-danger':(loginForm.get('password')?.invalid && loginForm.get('password')?.touched) || loginForm.get('password')?.errors?.['serverError']}"
+      >
+        Jelszó:
+      </label>
+      <input
+        id="password"
+        formControlName="password"
+        placeholder="Jelszó..."
+        class="form-control input"
+        type="password">
+      <small
+        *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['serverError']"
+        class="text-danger">
+        Kötelező megadnod a jelszót!
+      </small>
+      <small *ngIf="loginForm.get('password')?.errors?.['serverError']" class="text-danger">
+        {{ loginForm.get('password')?.errors?.['serverError'] }}
+      </small>
+
+    </div>
+    <div class="mb-4 my-3 text-center">
+      <button type="submit" class="btn button">Bejelentkezés</button>
+    </div>
+  </form>
+</div>

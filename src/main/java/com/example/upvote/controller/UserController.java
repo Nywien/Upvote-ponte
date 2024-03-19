@@ -6,7 +6,6 @@ import com.example.upvote.service.CustomUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -21,7 +20,6 @@ public class UserController {
     private final CustomUserService customUserService;
 
     @PostMapping
-    //@Secured("ROLE_VOTER")
     public ResponseEntity<Void> createNewUser(@RequestBody CustomUserCreationCommand command) {
         customUserService.register(command);
 

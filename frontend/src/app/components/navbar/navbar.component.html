@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Ötletek</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/register">Regisztráció</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/idea-form">Ötlet beküldése</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Ötletek jóváhagyása</a>
+  </li>
+  <li *ngIf="!isLoggedIn()" class="nav-item">
+    <a class="nav-link" routerLink="/login">Bejelentkezés</a>
+  </li>
+  <li *ngIf="isLoggedIn()" class="nav-item">
+    <a class="nav-link" (click)="logout()">Kijelentkezés</a>
+  </li>
+</ul>
