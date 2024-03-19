@@ -1,13 +1,16 @@
 package com.example.upvote.domain.entity;
 
-import jakarta.persistence.*;
+import com.example.upvote.dto.incoming.IdeaCreationCommand;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "idea")
+@Table(name = "ideas")
 public class Idea {
 
     @Id
@@ -17,11 +20,21 @@ public class Idea {
 
     @JoinColumn(name = "owner_id")
     @ManyToOne
-    private User owner;
+    private CustomUser owner;
 
     @Column(name = "description_of_idea")
     private String descriptionOfIdea;
 
-    @Column(name = "votes")
-    private int votes;
+    @ManyToMany(mappedBy = "voted")
+    private List<CustomUser> users;
+
+    @Column(name = "is_visible")
+    private boolean isVisible = false;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted = false;
+
+    public Idea(IdeaCreationCommand command) {
+        this.descriptionOfIdea = command.getDescriptionOfIdea();
+    }
 }

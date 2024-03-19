@@ -2,10 +2,14 @@ package com.example.upvote.domain.enums;
 
 public enum UserRole {
 
-    ROLE_ADMIN,
-    ROLE_VOTER;
+    ROLE_ADMIN("admin"),
+    ROLE_VOTER("voter");
 
     private String displayName;
+
+    UserRole(String displayName) {
+        this.displayName = displayName;
+    }
 
     public String getDisplayName() {
         return displayName;
