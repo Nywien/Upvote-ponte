@@ -41,11 +41,11 @@ public class CustomUser {
     @OneToMany(mappedBy = "owner")
     private List<Idea> ideasOfUser;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "user_idea",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "idea_id") }
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "idea_id")}
     )
     private List<Idea> voted;
 

@@ -16,8 +16,8 @@ export class IdeaFormComponent {
               private ideaService: IdeaService,
               private router: Router) {
     this.ideaForm = this.formBuilder.group({
-      name: [null,Validators.required],
-      descriptionOfIdea: [null,Validators.required]
+      name: [null, Validators.required],
+      descriptionOfIdea: [null, Validators.required]
     })
   }
 

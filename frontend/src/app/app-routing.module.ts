@@ -7,15 +7,16 @@ import {IdeaListComponent} from "./components/idea-list/idea-list.component";
 import {NewIdeaListComponent} from "./components/new-idea-list/new-idea-list.component";
 
 const routes: Routes = [
-  {path:"idea-form", component: IdeaFormComponent},
-  {path:"register", component: RegisterFormComponent},
-  {path:"login", component: LoginFormComponent},
-  {path:"idea-list", component: IdeaListComponent},
-  {path:"new-idea-list", component: NewIdeaListComponent}
+  {path: "idea-form", component: IdeaFormComponent},
+  {path: "register", component: RegisterFormComponent},
+  {path: "login", component: LoginFormComponent},
+  {path: "idea-list", component: IdeaListComponent},
+  {path: "new-idea-list", component: NewIdeaListComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

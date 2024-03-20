@@ -17,16 +17,16 @@ export class RegisterFormComponent {
               private userService: UserService,
               private router: Router) {
     this.registerForm = this.formBuilder.group({
-      firstName:['',[Validators.required]],
-      lastName:['',[Validators.required]],
-      email:['',[Validators.required]],
-      username:['',[Validators.required]],
-      password:['',[Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     })
   }
 
-  submitRegisterForm(){
-    let data:RegisterFormDataModel=this.registerForm.value
+  submitRegisterForm() {
+    let data: RegisterFormDataModel = this.registerForm.value
     this.userService.saveNewUser(data).subscribe({
       complete: () => this.router.navigate(["login"])
     });

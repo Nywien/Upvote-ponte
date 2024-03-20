@@ -17,11 +17,13 @@
         placeholder="Nevezd el az ötletedet..."
       />
 
-      <small *ngIf="ideaForm.get('name')?.invalid && ideaForm.get('name')?.touched && !ideaForm.get('name')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="ideaForm.get('name')?.invalid && ideaForm.get('name')?.touched && !ideaForm.get('name')?.errors?.['serverError']"
+        class="text-danger">
         Kérlek adj meg egy nevet!
       </small>
       <small *ngIf="ideaForm.get('name')?.errors?.['serverError']" class="text-danger">
-        {{ideaForm.get('name')?.errors?.['serverError']}}
+        {{ ideaForm.get('name')?.errors?.['serverError'] }}
       </small>
     </div>
 
@@ -41,11 +43,13 @@
         placeholder="Adj hozzá leírást..."
         rows="3"
       ></textarea>
-      <small *ngIf="ideaForm.get('descriptionOfIdea')?.invalid && ideaForm.get('descriptionOfIdea')?.touched && !ideaForm.get('descriptionOfIdea')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="ideaForm.get('descriptionOfIdea')?.invalid && ideaForm.get('descriptionOfIdea')?.touched && !ideaForm.get('descriptionOfIdea')?.errors?.['serverError']"
+        class="text-danger">
         Kérlek adj hozzá leírást!
       </small>
       <small *ngIf="ideaForm.get('descriptionOfIdea')?.errors?.['serverError']" class="text-danger">
-        {{ideaForm.get('descriptionOfIdea')?.errors?.['serverError']}}
+        {{ ideaForm.get('descriptionOfIdea')?.errors?.['serverError'] }}
       </small>
 
       <div class="mb-4 my-3 text-center">

@@ -30,7 +30,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080", "http://localhost:4200","http://localhost:8080/", "http://localhost:4200/"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080", "http://localhost:4200", "http://localhost:8080/", "http://localhost:4200/"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);

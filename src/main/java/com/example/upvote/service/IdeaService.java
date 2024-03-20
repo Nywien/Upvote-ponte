@@ -46,7 +46,7 @@ public class IdeaService {
     public void acceptIdea(Long id) {
         Optional<Idea> idea = ideaRepository.findById(id);
 
-        if (idea.isPresent() && !idea.get().isVisible() && !idea.get().isDeleted()){
+        if (idea.isPresent() && !idea.get().isVisible() && !idea.get().isDeleted()) {
             idea.get().setVisible(true);
             idea.get().setDeleted(false);
         }
@@ -55,7 +55,7 @@ public class IdeaService {
     public void rejectIdea(Long id) {
         Optional<Idea> idea = ideaRepository.findById(id);
 
-        if (idea.isPresent() && !idea.get().isVisible() && !idea.get().isDeleted()){
+        if (idea.isPresent() && !idea.get().isVisible() && !idea.get().isDeleted()) {
             idea.get().setVisible(false);
             idea.get().setDeleted(true);
         }
@@ -74,7 +74,7 @@ public class IdeaService {
 
         Optional<Idea> idea = ideaRepository.findById(id);
 
-        if (!idea.get().getUsers().contains(customUser) && !customUser.getRole().getDisplayName().equals("admin")){
+        if (!idea.get().getUsers().contains(customUser) && !customUser.getRole().getDisplayName().equals("admin")) {
             idea.get().getUsers().add(customUser);
             customUser.getVoted().add(idea.get());
             return true;

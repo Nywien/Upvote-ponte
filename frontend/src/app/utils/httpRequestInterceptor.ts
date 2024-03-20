@@ -7,14 +7,14 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
 
-    intercept(req: HttpRequest<any>, next: HttpHandler):
-        Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler):
+    Observable<HttpEvent<any>> {
 
-        const requestWithHeader = req.clone({
-                                                headers        : req.headers.set('X-Requested-With', 'XMLHttpRequest'),
-                                                withCredentials: true,
-                                            });
+    const requestWithHeader = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest'),
+      withCredentials: true,
+    });
 
-        return next.handle(requestWithHeader);
-    }
+    return next.handle(requestWithHeader);
+  }
 }

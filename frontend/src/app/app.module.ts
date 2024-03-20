@@ -29,9 +29,10 @@ import {HttpRequestInterceptor} from "./utils/httpRequestInterceptor";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ [
+  providers: [[
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
   ],],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

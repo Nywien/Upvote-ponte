@@ -32,7 +32,7 @@ public class IdeaController {
 
     @PatchMapping
     public ResponseEntity<Void> addVote(@RequestBody Long id) {
-        if (ideaService.addVote(id)){
+        if (ideaService.addVote(id)) {
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

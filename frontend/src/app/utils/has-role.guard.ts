@@ -6,22 +6,25 @@ import {ActivatedRouteSnapshot, CanActivate, Router} from '@angular/router';
   providedIn: 'root'
 })
 export class HasRoleGuard implements CanActivate {
-    constructor( public router: Router) {}
-    canActivate(route: ActivatedRouteSnapshot): boolean {
+  constructor(public router: Router) {
+  }
 
-        const expectedRoles = route.data['expectedRoles'];
-        const localStorageUser = localStorage.getItem('user');
-        // @ts-ignore
-      const localStorageRoles = JSON.parse(localStorageUser).roles;
+  canActivate(route: ActivatedRouteSnapshot): boolean {
 
-        for (const expectedRole of expectedRoles) {
-            if (this.isAuthenticated() && localStorageRoles.includes(expectedRole)) {
-                return true;
-            }
-        }
+    const expectedRoles = route.data['expectedRoles'];
+    const localStorageUser = localStorage.getItem('user');
+    // @ts-ignore
+    const localStorageRoles = JSON.parse(localStorageUser).roles;
 
-        return false;
+    for (const expectedRole of expectedRoles) {
+      if (this.isAuthenticated() && localStorageRoles.includes(expectedRole)) {
+        return true;
+      }
     }
+
+    return false;
+  }
+
   isAuthenticated() {
     return localStorage.getItem('user');
   }

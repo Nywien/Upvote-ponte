@@ -28,7 +28,7 @@ export class NewIdeaListComponent {
     const id = idea.id;
     this.ideaService.acceptIdea(id).subscribe(
       {
-        complete:()=>{
+        complete: () => {
           this.listNewIdeas();
         }
       }
@@ -39,7 +39,7 @@ export class NewIdeaListComponent {
     const id = idea.id;
     this.ideaService.rejectIdea(id).subscribe(
       {
-        complete:()=>{
+        complete: () => {
           this.listNewIdeas();
         }
       }

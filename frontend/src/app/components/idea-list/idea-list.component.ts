@@ -7,7 +7,7 @@ import {IdeaService} from "../../services/idea.service";
   templateUrl: './idea-list.component.html',
   styleUrls: ['./idea-list.component.css']
 })
-export class IdeaListComponent implements OnInit{
+export class IdeaListComponent implements OnInit {
 
   ideas: IdeaListItemModel[] = [];
 
@@ -29,7 +29,7 @@ export class IdeaListComponent implements OnInit{
     const id = idea.id;
     this.ideaService.addVote(id).subscribe(
       {
-        complete:()=>{
+        complete: () => {
           this.listIdeas();
         }
       }

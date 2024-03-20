@@ -1,0 +1,9 @@
+.text {
+  color: black;
+}
+
+.text:hover {
+  color: #22a18b;
+  font-weight: bold;
+  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.24);
+}

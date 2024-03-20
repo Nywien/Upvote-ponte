@@ -1,6 +1,6 @@
 export interface NewIdeaListItemModel {
   id: number;
-  name:string;
+  name: string;
   owner: string;
   descriptionOfIdea: string;
 }

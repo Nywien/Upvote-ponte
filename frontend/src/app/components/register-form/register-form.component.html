@@ -16,11 +16,13 @@
         placeholder="Kérlek add meg a keresztneved..."
         class="form-control input"
         type="text">
-      <small *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched && !registerForm.get('firstName')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched && !registerForm.get('firstName')?.errors?.['serverError']"
+        class="text-danger">
         Kötelező a keresztnév kitöltése!
       </small>
       <small *ngIf="registerForm.get('firstName')?.errors?.['serverError']" class="text-danger">
-        {{registerForm.get('firstName')?.errors?.['serverError']}}
+        {{ registerForm.get('firstName')?.errors?.['serverError'] }}
       </small>
 
     </div>
@@ -37,11 +39,13 @@
         placeholder="Kérlek add meg a vezetékneved..."
         class="form-control input"
         type="text">
-      <small *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched && !registerForm.get('lastName')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched && !registerForm.get('lastName')?.errors?.['serverError']"
+        class="text-danger">
         Kötelező a vezetéknév kitöltése!
       </small>
       <small *ngIf="registerForm.get('lastName')?.errors?.['serverError']" class="text-danger">
-        {{registerForm.get('lastName')?.errors?.['serverError']}}
+        {{ registerForm.get('lastName')?.errors?.['serverError'] }}
       </small>
 
     </div>
@@ -58,11 +62,13 @@
         placeholder="Kérlek add meg az email címed..."
         class="form-control input"
         type="text">
-      <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.errors?.['serverError']"
+        class="text-danger">
         Kötelező az email cím kitöltése!
       </small>
       <small *ngIf="registerForm.get('email')?.errors?.['serverError']" class="text-danger">
-        {{registerForm.get('email')?.errors?.['serverError']}}
+        {{ registerForm.get('email')?.errors?.['serverError'] }}
       </small>
 
     </div>
@@ -80,11 +86,13 @@
         placeholder="Kérlek add meg a felhasználóneved..."
         class="form-control input"
         type="text">
-      <small *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched && !registerForm.get('username')?.errors?.['serverError']" class="text-danger">
+      <small
+        *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched && !registerForm.get('username')?.errors?.['serverError']"
+        class="text-danger">
         Kötelező a felhasználónév kitöltése!
       </small>
       <small *ngIf="registerForm.get('username')?.errors?.['serverError']" class="text-danger">
-        {{registerForm.get('username')?.errors?.['serverError']}}
+        {{ registerForm.get('username')?.errors?.['serverError'] }}
       </small>
 
       <div class="my-2">
@@ -99,11 +107,13 @@
           placeholder="Kérlek add meg a jelszavad..."
           class="form-control input"
           type="password">
-        <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.errors?.['serverError']" class="text-danger">
+        <small
+          *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.errors?.['serverError']"
+          class="text-danger">
           Kötelező a jelszó kitöltése!
         </small>
         <small *ngIf="registerForm.get('password')?.errors?.['serverError']" class="text-danger">
-          {{registerForm.get('password')?.errors?.['serverError']}}
+          {{ registerForm.get('password')?.errors?.['serverError'] }}
         </small>
 
       </div>

@@ -9,7 +9,7 @@ const BASE_URL = "http://localhost:8080";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
 
   constructor(private http: HttpClient, private router: Router) {

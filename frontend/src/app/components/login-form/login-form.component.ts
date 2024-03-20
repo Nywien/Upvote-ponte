@@ -14,10 +14,10 @@ export class LoginFormComponent {
 
   constructor(private userService: UserService,
               private router: Router,
-              private formBuilder:FormBuilder) {
+              private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username:['', Validators.required],
-      password:['', Validators.required]
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 

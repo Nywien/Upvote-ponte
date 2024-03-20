@@ -1,20 +1,20 @@
 <ul class="nav nav-tabs justify-content-center">
   <li class="nav-item">
-    <a class="nav-link" routerLink="/idea-list">Ötletek</a>
+    <a class="nav-link text" routerLink="/idea-list">Ötletek</a>
   </li>
   <li *ngIf="!isLoggedIn()" class="nav-item">
-    <a class="nav-link" routerLink="/register">Regisztráció</a>
+    <a class="nav-link text" routerLink="/register">Regisztráció</a>
   </li>
   <li *ngIf="hasRoles(['voter'])" class="nav-item">
-    <a class="nav-link" routerLink="/idea-form">Ötlet beküldése</a>
+    <a class="nav-link text" routerLink="/idea-form">Ötlet beküldése</a>
   </li>
   <li *ngIf="hasRoles(['admin'])" class="nav-item">
-    <a class="nav-link"  routerLink="/new-idea-list">Ötletek jóváhagyása</a>
+    <a class="nav-link text" routerLink="/new-idea-list">Ötletek jóváhagyása</a>
   </li>
-  <li *ngIf="!isLoggedIn()"  class="nav-item">
-    <a class="nav-link" routerLink="/login">Bejelentkezés</a>
+  <li *ngIf="!isLoggedIn()" class="nav-item">
+    <a class="nav-link text" routerLink="/login">Bejelentkezés</a>
   </li>
   <li *ngIf="isLoggedIn()" class="nav-item">
-    <a class="nav-link" (click)="logout()">Kijelentkezés</a>
+    <a class="nav-link text" (click)="logout()">Kijelentkezés</a>
   </li>
 </ul>
