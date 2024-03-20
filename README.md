@@ -51,6 +51,20 @@ MAC OS:
 * ng serve
 * alapértelmezett URL: http://localhost:4200
 
+### Java elindítása
+
+Ahhoz, hogy létrejöjjön az admin, mint felhasználó ahhoz
+ az application.yaml-t az alábbiak szerint kell módosítani:
+
+
+  * init.mode: never
+  * hibernate.ddl-auto: create
+
+részt átkell írni az alábbira:
+
+* init.mode: always
+* hibernate.ddl-auto: update
+
 ### Swagger dokumentáció
 
 * Az alkalmazás elindítása után elérhető a swagger api dokumentáció http://localhost:8080/swagger-ui/ oldalon.

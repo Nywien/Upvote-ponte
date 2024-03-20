@@ -8,13 +8,13 @@ server:
 spring:
   sql:
     init:
-      mode: always
+      mode: never
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?serverTimezone=UTC&characterEncoding=utf8
     password: test1234
     username: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
