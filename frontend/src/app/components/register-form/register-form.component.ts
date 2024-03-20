@@ -28,7 +28,7 @@ export class RegisterFormComponent {
   submitRegisterForm() {
     let data: RegisterFormDataModel = this.registerForm.value
     this.userService.saveNewUser(data).subscribe({
-      complete: () => this.router.navigate(["login"])
+      complete: () => this.router.navigate(["/login"])
     });
   }
 
