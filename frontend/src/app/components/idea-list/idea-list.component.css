@@ -10,3 +10,8 @@
 .button-up:hover{
   color: #00d5ff;
 }
+
+.container{
+  width: 100%;
+  max-width: 700px;
+}

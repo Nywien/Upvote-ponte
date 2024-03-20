@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 @Component({
@@ -26,7 +25,8 @@ export class LoginFormComponent {
     const data = {...this.loginForm.value};
     this.userService.authenticate(data).subscribe(
       response => {
-        localStorage.setItem('user', JSON.stringify(response))
+        localStorage.setItem('user', JSON.stringify(response));
+        this.router.navigate(['/']);
       })
   }
 

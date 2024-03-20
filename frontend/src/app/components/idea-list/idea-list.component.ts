@@ -24,4 +24,15 @@ export class IdeaListComponent implements OnInit{
   ngOnInit(): void {
     this.listIdeas();
   }
+
+  addVote(idea: IdeaListItemModel): void {
+    const id = idea.id;
+    this.ideaService.addVote(id).subscribe(
+      {
+        complete:()=>{
+          this.listIdeas();
+        }
+      }
+    );
+  }
 }

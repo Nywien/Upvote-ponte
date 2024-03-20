@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 
@@ -9,10 +9,22 @@ const BASE_URL = "http://localhost:8080";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
 
   constructor(private http: HttpClient, private router: Router) {
+  }
+
+  ngOnInit() {
+    this.http.get(BASE_URL + '/api/users/me').subscribe(
+      (response) => {
+        localStorage.setItem('user', JSON.stringify(response));
+      },
+      (error) => {
+        localStorage.removeItem('user');
+
+      });
+
   }
 
   hasRoles(expectedRoles: string[]): boolean {
@@ -36,9 +48,8 @@ export class NavbarComponent {
   }
 
   logout() {
-    this.http.get(BASE_URL + '/api/users/logout').subscribe(() => {
+    this.http.get(BASE_URL + '/logout').subscribe(() => {
       localStorage.removeItem('user');
-      this.router.navigate(["/login"]);
     });
   }
 }

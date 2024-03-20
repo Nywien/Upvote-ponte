@@ -7,7 +7,6 @@ import com.example.upvote.service.IdeaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,10 +30,13 @@ public class IdeaController {
         return new ResponseEntity<>(ideaDetailsList, HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<Void> addVote(@PathVariable Long id) {
-        ideaService.addVote(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PatchMapping
+    public ResponseEntity<Void> addVote(@RequestBody Long id) {
+        if (ideaService.addVote(id)){
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
 
@@ -44,14 +46,14 @@ public class IdeaController {
         return new ResponseEntity<>(ideaList, HttpStatus.OK);
     }
 
-    @PatchMapping("/ideas/{id}/accept")
-    public ResponseEntity<Void> acceptIdea(@PathVariable Long id) {
+    @PatchMapping("/ideas/accept")
+    public ResponseEntity<Void> acceptIdea(@RequestBody Long id) {
         ideaService.acceptIdea(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PatchMapping("/ideas/{id}/reject")
-    public ResponseEntity<Void> rejectIdea(@PathVariable Long id) {
+    @PatchMapping("/ideas/reject")
+    public ResponseEntity<Void> rejectIdea(@RequestBody Long id) {
         ideaService.rejectIdea(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

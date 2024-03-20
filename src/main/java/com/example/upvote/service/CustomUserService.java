@@ -24,6 +24,9 @@ public class CustomUserService implements UserDetailsService {
     private final PasswordEncoder passwordEncoder;
 
     public void register(CustomUserCreationCommand command) {
+        if (customUserRepository.findCustomUserByUsername(command.getUsername()) != null) {
+            throw new RuntimeException("Username is reserved.");
+        }
         CustomUser customUser = new CustomUser(command);
         customUser.setRole(UserRole.ROLE_VOTER);
         customUser.setPassword(passwordEncoder.encode(command.getPassword()));

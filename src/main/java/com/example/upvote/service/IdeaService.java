@@ -64,17 +64,22 @@ public class IdeaService {
     public List<IdeaList> listAllNewIdea() {
         List<Idea> ideas = ideaRepository.findAll();
 
-        return ideas.stream().filter(idea -> !idea.isDeleted()).map(IdeaList::new).collect(Collectors.toList());
+        return ideas.stream().filter(idea -> !idea.isVisible() && !idea.isDeleted()).map(IdeaList::new).collect(Collectors.toList());
     }
 
-    public void addVote(Long id) {
+    public boolean addVote(Long id) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails loggedInUser = (User) authentication.getPrincipal();
         CustomUser customUser = customUserRepository.findCustomUserByUsername(loggedInUser.getUsername());
 
         Optional<Idea> idea = ideaRepository.findById(id);
 
-        idea.get().getUsers().add(customUser);
-        customUser.getVoted().add(idea.get());
+        if (!idea.get().getUsers().contains(customUser) && !customUser.getRole().getDisplayName().equals("admin")){
+            idea.get().getUsers().add(customUser);
+            customUser.getVoted().add(idea.get());
+            return true;
+        } else {
+            return false;
+        }
     }
 }

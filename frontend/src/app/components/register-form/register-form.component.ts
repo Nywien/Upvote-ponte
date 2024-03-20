@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IdeaService} from "../../services/idea.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {RegisterFormDataModel} from "../../models/RegisterFormData.model";
@@ -28,7 +27,9 @@ export class RegisterFormComponent {
 
   submitRegisterForm(){
     let data:RegisterFormDataModel=this.registerForm.value
-    this.userService.saveNewUser(data).subscribe();
+    this.userService.saveNewUser(data).subscribe({
+      complete: () => this.router.navigate(["login"])
+    });
   }
 
 }

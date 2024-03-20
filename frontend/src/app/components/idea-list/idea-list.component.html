@@ -3,12 +3,13 @@
 <div *ngFor="let idea of ideas" class="container container-fluid my-4">
 <div class="card">
   <div class="card-header">
-    Szerző: {{idea.owner}}
+    Ötletgazda: {{idea.owner}} ||
+    Szavazat: {{idea.votes}}
   </div>
   <div class="card-body">
     <h5 class="card-title">{{idea.name}}</h5>
     <p class="card-text">{{idea.descriptionOfIdea}}</p>
-    <button class="btn button-up"><i class="bi bi-arrow-up-circle"></i></button>
+    <button (click)="addVote(idea)" class="btn button-up"><i class="bi bi-arrow-up-circle"></i></button>
   </div>
 </div>
 </div>
