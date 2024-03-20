@@ -50,3 +50,8 @@ MAC OS:
 * npm install -g @angular/cli
 * ng serve
 * alapértelmezett URL: http://localhost:4200
+
+### Swagger dokumentáció
+
+* Az alkalmazás elindítása után elérhető a swagger api dokumentáció http://localhost:8080/swagger-ui/ oldalon.
+* Illetve az api leíró pedig a főknyvtárban "api.yml" néven
