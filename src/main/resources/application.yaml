@@ -6,12 +6,15 @@ server:
       enabled: true
       force: true
 spring:
+  sql:
+    init:
+      mode: always
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?serverTimezone=UTC&characterEncoding=utf8
     password: test1234
     username: postgres
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
